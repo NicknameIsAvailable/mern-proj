@@ -1,0 +1,35 @@
+{
+  "name": "mernblog",
+  "version": "1.0.0",
+  "description": "This is my first mern app, that I made to learn mern and use this stack in my browser game - quizzr.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "start:dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/NicknameIsAvailable/mern-app.git"
+  },
+  "keywords": [
+    "mern",
+    "nodejs",
+    "react",
+    "express",
+    "mongodb",
+    "gnidapivnov"
+  ],
+  "author": "Gnida Pivnov <iamgenii@yandex.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NicknameIsAvailable/mern-app/issues"
+  },
+  "homepage": "https://github.com/NicknameIsAvailable/mern-app#readme",
+  "dependencies": {
+    "expess": "^0.0.1-security",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "nodemon": "^2.0.19"
+  }
+}
