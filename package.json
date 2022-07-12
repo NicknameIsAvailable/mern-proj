@@ -28,6 +28,7 @@
   "homepage": "https://github.com/NicknameIsAvailable/mern-app#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
     "expess": "^0.0.1-security",
     "express": "^4.18.1",
     "express-validator": "^6.14.2",
