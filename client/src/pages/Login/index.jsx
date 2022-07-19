@@ -17,7 +17,6 @@ export const Login = () => {
     const {
         register,
         handleSubmit,
-        setError,
         formState: {errors, isValid}
     } = useForm({
         defaultValues: {
@@ -27,50 +26,49 @@ export const Login = () => {
         mode: 'onChange'
     })
 
-  const onSubmit = async (values) => {
-      const data = await dispatch(fetchAuth(values))
-      if (!data.payload) {
-          alert('Не удалось авторизоваться')
-      }
+    const onSubmit = async (values) => {
+        const data = await dispatch(fetchAuth(values))
+        if (!data.payload) {
+            alert('Не удалось авторизоваться')
+        }
 
-      if ('token' in data.payload) {
-          window.localStorage.setItem('token', data.payload.token)
-      }
-  }
+        if ('token' in data.payload) {
+            window.localStorage.setItem('token', data.payload.token)
+        }
+    }
 
-  if (isAuth) {
-      return <Navigate to="/"/>
-  }
+    if (isAuth) {
+        return <Navigate to="/"/>
+    }
 
-  console.log("isAuth", isAuth)
 
-  return (
-    <Paper classes={{ root: styles.root }}>
-      <Typography classes={{ root: styles.title }} variant="h5">
-        Вход в аккаунт
-      </Typography>
-        <form onSubmit={handleSubmit(onSubmit)}>
-      <TextField
-        type="email"
-        className={styles.field}
-        label="E-Mail"
-        error={Boolean(errors.email ?.message)}
-        helperText={errors.email ?.message}
-        {...register('email', {required: 'Укажите почту'})}
-        fullWidth
-      />
-      <TextField
-          type="password"
-          className={styles.field}
-          label="Пароль"
-          error={Boolean(errors.password ?.message)}
-          helperText={errors.password ?.message}
-          fullWidth {...register('password', {required: 'Укажите пароль'})}
-      />
-      <Button type="submit" size="large" variant="contained" fullWidth>
-        Войти
-      </Button>
-        </form>
-    </Paper>
-  );
+    return (
+        <Paper classes={{ root: styles.root }}>
+            <Typography classes={{ root: styles.title }} variant="h5">
+                Вход в аккаунт
+            </Typography>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <TextField
+                    type="email"
+                    className={styles.field}
+                    label="E-Mail"
+                    error={Boolean(errors.email ?.message)}
+                    helperText={errors.email ?.message}
+                    {...register('email', {required: 'Укажите почту'})}
+                    fullWidth
+                />
+                <TextField
+                    type="password"
+                    className={styles.field}
+                    label="Пароль"
+                    error={Boolean(errors.password ?.message)}
+                    helperText={errors.password ?.message}
+                    fullWidth {...register('password', {required: 'Укажите пароль'})}
+                />
+                <Button  disabled={!isValid} type="submit" size="large" variant="contained" fullWidth>
+                    Войти
+                </Button>
+            </form>
+        </Paper>
+    );
 };

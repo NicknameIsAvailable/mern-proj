@@ -15,10 +15,11 @@ export const Header = () => {
   const onClickLogout = () => {
     if (window.confirm('Вы действительно хотите выйти?')) {
       dispatch(logout())
+      window.localStorage.removeItem('token')
     }
   };
 
-  return (
+  return(
     <div className={styles.root}>
       <Container maxWidth="lg">
         <div className={styles.inner}>
