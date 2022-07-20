@@ -26,6 +26,7 @@ export const Home = () => {
 
     console.log(posts)
 
+
     return (
         <>
             <Tabs style={{ marginBottom: 15 }} value={0} aria-label="basic tabs example">
@@ -47,7 +48,7 @@ export const Home = () => {
                                 viewsCount={obj.viewsCount}
                                 commentsCount={3}
                                 tags={obj.tags}
-                                isEditable={userData ?._id === obj.user._id}
+                                isEditable={userData?._id === obj.user._id}
                             />
                         ))}
                 </Grid>
